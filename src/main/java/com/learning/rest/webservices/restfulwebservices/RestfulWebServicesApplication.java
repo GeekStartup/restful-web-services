@@ -1,4 +1,4 @@
-package com.in28minutes.rest.webservices.restfulwebservices;
+package com.learning.rest.webservices.restfulwebservices;
 
 import java.util.Locale;
 
