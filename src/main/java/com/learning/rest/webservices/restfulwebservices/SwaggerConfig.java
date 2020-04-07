@@ -10,17 +10,24 @@ import org.springframework.hateoas.client.LinkDiscoverers;
 import org.springframework.hateoas.mediatype.collectionjson.CollectionJsonLinkDiscoverer;
 import org.springframework.plugin.core.SimplePluginRegistry;
 
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spring.web.plugins.Docket;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
+import io.swagger.v3.oas.models.OpenAPI;
+import io.swagger.v3.oas.models.info.Contact;
+import io.swagger.v3.oas.models.info.Info;
+import io.swagger.v3.oas.models.info.License;
 
 @Configuration
-@EnableSwagger2
 public class SwaggerConfig {
 
+	private static final Info DEFAULT_API_INFO = new Info().title("Awesome API Title")
+			.description("Awesome API Documentation")
+			.version("1.0")
+			.license(new License().name("Apache 2.0").url("http://www.apache.org/licenses/LICENSE-2.0"))
+			.contact(new Contact().name("Ashish Nayak").email("ashish04021989@gmail.com"));
+	
 	@Bean
-	public Docket api() {
-		return new Docket(DocumentationType.SWAGGER_2);
+	public OpenAPI api() {
+		return new OpenAPI().info(DEFAULT_API_INFO);
+		
 	}
 	
 	@Bean
