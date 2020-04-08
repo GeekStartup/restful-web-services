@@ -2,14 +2,20 @@ package com.learning.rest.webservices.restfulwebservices.user;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 
 @Schema(description = "All details of the user.")
+@Entity
 public class User {
 
+	@Id
+	@GeneratedValue
 	private Integer id;
 
 	@Schema(description = "Name should be atleat 2 character long")
@@ -26,6 +32,12 @@ public class User {
 		this.name = name;
 		this.birthDate = birthDate;
 	}
+
+	
+	public User() {
+		super();
+	}
+
 
 	public Integer getId() {
 		return id;
